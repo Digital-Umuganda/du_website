@@ -1,8 +1,9 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // Components
 import {
@@ -17,10 +18,48 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
 // Icons
+import { Fragment } from "react";
 import { FaBarsStaggered, FaRegMessage } from "react-icons/fa6";
 
 const Nav = () => {
+  const router = useRouter();
   const pathname = usePathname();
+
+  const navigation = [
+    {
+      href: "/",
+      name: "Home",
+    },
+    {
+      name: "About Us",
+      subNavigations: [
+        {
+          href: "/company",
+          name: "About The Company",
+          description:
+            "Learn more about our mission, and the values that drive our commitment to excellence.",
+        },
+        {
+          href: "/team",
+          name: "Meet The Team",
+          description:
+            "Meet the team behind our company and discover their expertise and dedication.",
+        },
+      ],
+    },
+    {
+      href: "/projects",
+      name: "Projects",
+    },
+    {
+      href: "/services",
+      name: "Services",
+    },
+    {
+      href: "/privacy",
+      name: "Data Privacy",
+    },
+  ];
 
   return (
     <div className="xl:w-[1200px] lg:w-[1000px] md:w-[750px] sm:w-[600px] w-full px-4 sm:px-0 h-[80px] flex flex-col items-center justify-center">
@@ -39,119 +78,49 @@ const Nav = () => {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuList className="gap-10 hidden lg:flex">
-            <NavigationMenuItem>
-              <Link href={"/"}>
-                <NavigationMenuLink
-                  className={pathname === "/" ? "text-green" : ""}
-                >
-                  Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href={"/company"}>
-                <NavigationMenuLink
-                  className={pathname === "/company" ? "text-green" : ""}
-                >
-                  About Us
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            {/* <NavigationMenuItem className="relative">
-              <NavigationMenuTrigger
-                className={pathname === "/about" ? "text-green" : ""}
-              >
-                About
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="top-[80px] -left-[100%]">
-                <div className="w-[550px] h-fit flex bg-white p-4 gap-4 shadow-2xl rounded">
-                  <Image
-                    alt="One"
-                    width={600}
-                    height={500}
-                    loading="lazy"
-                    src={"/images/nav.JPG"}
-                    className="w-1/3 h-auto object-cover object-right rounded"
-                  />
-                  <div className="w-2/3 h-full flex flex-col gap-2">
-                    <div
-                      className="flex flex-col gap-2 cursor-pointer p-4 rounded hover:bg-gray"
-                      onClick={() => router?.push("/company")}
+            {navigation.map((item) => (
+              <NavigationMenuItem key={item.href} className="relative">
+                {item?.subNavigations ? (
+                  <Fragment>
+                    <NavigationMenuTrigger>{item.name}</NavigationMenuTrigger>
+                    <NavigationMenuContent className="top-[80px] -left-[100%]">
+                      <div className="w-[550px] h-fit flex bg-white p-4 gap-4 shadow-2xl rounded">
+                        <Image
+                          alt="One"
+                          width={600}
+                          height={500}
+                          loading="lazy"
+                          src={"/images/nav.JPG"}
+                          className="w-1/3 h-auto object-cover object-right rounded"
+                        />
+                        <div className="w-2/3 h-full flex flex-col gap-2">
+                          {item.subNavigations.map((subItem) => (
+                            <div
+                              key={subItem.href}
+                              className="flex flex-col gap-2 cursor-pointer p-4 rounded hover:bg-gray"
+                              onClick={() =>
+                                router?.push(subItem.href as string)
+                              }
+                            >
+                              <p className="font-bold">{subItem.name}</p>
+                              <p>{subItem.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </Fragment>
+                ) : (
+                  <Link href={item.href as string}>
+                    <NavigationMenuLink
+                      className={pathname === item.href ? "text-green" : ""}
                     >
-                      <p className="font-bold">About the company</p>
-                      <p>
-                        Learn more about our mission, and the values that drive
-                        our commitment to excellence.
-                      </p>
-                    </div>
-                    <div
-                      className="flex flex-col gap-2 cursor-pointer p-4 rounded hover:bg-gray"
-                      onClick={() => router?.push("/partners")}
-                    >
-                      <p className="font-bold">Partners Information</p>
-                      <p>
-                        Learn more about our valued partnerships and how to join
-                        our network of industry leaders.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem> */}
-            <NavigationMenuItem>
-              <Link href={"/projects"}>
-                <NavigationMenuLink
-                  className={pathname === "/projects" ? "text-green" : ""}
-                >
-                  Projects
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href={"/services"}>
-                <NavigationMenuLink
-                  className={pathname === "/services" ? "text-green" : ""}
-                >
-                  Services
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href={"/privacy"}>
-                <NavigationMenuLink
-                  className={pathname === "/privacy" ? "text-green" : ""}
-                >
-                  Data Privacy
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            {/* <NavigationMenuItem>
-              <Link href={"/blog"}>
-                <NavigationMenuLink
-                  className={pathname === "/blog" ? "text-green" : ""}
-                >
-                  Blog
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem> */}
-            {/* <NavigationMenuItem>
-              <Link href={"/gallery"}>
-                <NavigationMenuLink
-                  className={pathname === "/gallery" ? "text-green" : ""}
-                >
-                  Gallery
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href={"/news"}>
-                <NavigationMenuLink
-                  className={pathname === "/news" ? "text-green" : ""}
-                >
-                  News
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem> */}
+                      {item.name}
+                    </NavigationMenuLink>
+                  </Link>
+                )}
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
           <NavigationMenuItem className="flex items-center gap-4 relative">
             <NavigationMenuTrigger className="lg:hidden" aria-hidden="false">
@@ -167,87 +136,28 @@ const Nav = () => {
                   src={"/images/nav.JPG"}
                   className="w-full h-[150px] object-cover rounded"
                 />
-                <NavigationMenuItem>
-                  <Link href={"/"}>
-                    <NavigationMenuLink
-                      className={pathname === "/" ? "text-green" : ""}
-                    >
-                      Home
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href={"/company"}>
-                    <NavigationMenuLink
-                      className={pathname === "/company" ? "text-green" : ""}
-                    >
-                      About Us
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                {/* <NavigationMenuItem>
-                  <Link href={"/partners"}>
-                    <NavigationMenuLink
-                      className={pathname === "/partners" ? "text-green" : ""}
-                    >
-                      Partners Information
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem> */}
-                <NavigationMenuItem>
-                  <Link href={"/projects"}>
-                    <NavigationMenuLink
-                      className={pathname === "/projects" ? "text-green" : ""}
-                    >
-                      Projects
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href={"/services"}>
-                    <NavigationMenuLink
-                      className={pathname === "/services" ? "text-green" : ""}
-                    >
-                      Services
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href={"/privacy"}>
-                    <NavigationMenuLink
-                      className={pathname === "/privacy" ? "text-green" : ""}
-                    >
-                      Data Privacy
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                {/* <NavigationMenuItem>
-                  <Link href={"/blog"}>
-                    <NavigationMenuLink
-                      className={pathname === "/blog" ? "text-green" : ""}
-                    >
-                      Blog
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem> */}
-                {/* <NavigationMenuItem>
-                  <Link href={"/gallery"}>
-                    <NavigationMenuLink
-                      className={pathname === "/gallery" ? "text-green" : ""}
-                    >
-                      Gallery
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href={"/news"}>
-                    <NavigationMenuLink
-                      className={pathname === "/news" ? "text-green" : ""}
-                    >
-                      News
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem> */}
+                <div className="flex flex-col gap-3">
+                  {navigation.map((item) => (
+                    <Fragment key={item.href as string}>
+                      {item?.subNavigations ? (
+                        <Fragment>
+                          {item.subNavigations.map((subItem) => (
+                            <Link
+                              key={subItem.href}
+                              href={subItem.href as string}
+                            >
+                              <p>{subItem.name}</p>
+                            </Link>
+                          ))}
+                        </Fragment>
+                      ) : (
+                        <Link href={item.href as string}>
+                          <p>{item.name}</p>
+                        </Link>
+                      )}
+                    </Fragment>
+                  ))}
+                </div>
               </div>
             </NavigationMenuContent>
             <Link href={"/#contact"} className="sm:flex hidden">

@@ -19,19 +19,8 @@ import { Separator } from "@/components/ui/separator";
 // Icons
 import { Info } from "lucide-react";
 
-// Utils
-// import { Bloger } from "@/lib/types";
-// import axiosInstance from "@/lib/axios";
-
 export default function Home() {
   const router = useRouter();
-  // const [data, setData] = useState<Bloger[]>();
-
-  // useEffect(() => {
-  //   axiosInstance.get("/wp/v2/posts?categories=19").then((res) => {
-  //     setData(res.data);
-  //   });
-  // }, []);
 
   return (
     <main className="w-full h-full flex flex-col items-center">
@@ -303,12 +292,6 @@ export default function Home() {
             height={250}
             src="/logos/six.png"
           />
-          {/* <GrayscaleImage
-            alt="One"
-            width={250}
-            height={250}
-            src="/logos/seven.png"
-          /> */}
           <GrayscaleImage
             alt="One"
             width={250}
@@ -324,7 +307,6 @@ export default function Home() {
         </div>
       </Width>
       <Separator className="my-16" />
-      {/* <Testimonials /> */}
       <Width classnames="h-auto flex flex-col justify-start" id="contact">
         <Contact />
       </Width>

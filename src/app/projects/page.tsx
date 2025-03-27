@@ -59,7 +59,8 @@ const Projects = () => {
         </div>
         <div className="lg:w-[55%] w-full h-full flex flex-col justify-center gap-4 lg:px-10">
           <p className="text-2xl font-bold text-dark_blue">
-            Open Data For All (OD4A)
+            <span className="text-green">Open Data For All (OD4A)</span>:
+            Building the Foundation for Accessible African Language Technology.
           </p>
           <Image
             alt="One"
@@ -70,18 +71,16 @@ const Projects = () => {
             className="w-full h-[250px] object-cover lg:hidden rounded"
           />
           <p className="text-justify">
-            Throught OD4A, we gather and create large-scale datasets to support
-            the development of tools for African languages. This includes
-            collecting voice recordings, text samples, and translations to build
-            models for Speech-to-Text (Converting spoken words into written
-            text), Text-to-Speech (Turning written text into natural-sounding
-            speech), and Machine Translation (Enabling translations between
-            African languages and other global languages).
-          </p>
-          <p className="text-justify">
-            Our approach involves collaborating with local communities to ensure
-            that the data is accurate, diverse, and representative of the
-            richness of African languages.
+            OD4A is more than just a data collection initiative; it&apos;s a
+            strategic effort to build the bedrock upon which a new era of
+            inclusive language technology for African communities can thrive. We
+            recognize that the lack of robust, publicly available datasets is a
+            significant bottleneck in the development of tools that truly serve
+            the diverse linguistic landscape of Africa. Therefore, we are
+            actively constructing a vital open data infrastructure. This
+            infrastructure is not merely a repository; it&apos;s a dynamic
+            resource designed to empower developers, researchers, and innovators
+            across the continent.
           </p>
           <Button
             className="gap-2 sm:w-1/3 w-2/4 bg-green"
@@ -94,7 +93,10 @@ const Projects = () => {
       <div className="w-full h-auto flex flex-col items-center bg-gray mt-10 py-10">
         <Width classnames="h-auto flex items-center">
           <div className="lg:w-[55%] w-full h-full flex flex-col justify-center gap-4 lg:px-10">
-            <p className="text-2xl font-bold text-dark_blue">Mbaza</p>
+            <p className="text-2xl font-bold text-dark_blue">
+              <span className="text-green">Mbaza</span>: Our Innovation Forge
+              for Real-World Solutions.
+            </p>
             <Image
               alt="One"
               width={600}
@@ -104,16 +106,20 @@ const Projects = () => {
               className="w-full h-[250px] object-cover lg:hidden rounded"
             />
             <p className="text-justify">
-              Mbaza is our innovation hub where we transform real-world
-              challenges into impactful solutions. We actively engage with
-              governments, private sector and NGOs to understand their unique
-              needs and develop tailored tools and applications. Mbaza is more
-              than a service—it’s a bridge between technological potential and
-              societal impact, ensuring our innovations directly address the
-              pressing needs of our partners. We co-create solutions which are
-              practical, scalable, and aligned with the needs of the end users.
+              We transform pressing challenges into tangible impact at Mbaza,
+              our dedicated innovation hub. By actively engaging with
+              governments, the private sector, and NGOs, we gain deep insights
+              into their unique needs and co-create tailored tools and
+              applications.
             </p>
-            <p className="text-justify">Some of the solutions created are:</p>
+            <p className="text-justify">
+              Mbaza transcends traditional service provision; it&apos;s a
+              dynamic bridge connecting technological potential with real
+              societal impact. We prioritize co-creation, ensuring our solutions
+              are practical, scalable, and deeply aligned with the needs of
+              end-users. Our collaborative efforts have led to the development
+              of:
+            </p>
             <Button
               className="gap-2 sm:w-1/3 w-2/4 bg-green"
               onClick={() => router.push("/projects/mbaza")}
