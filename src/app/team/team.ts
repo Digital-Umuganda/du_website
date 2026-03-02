@@ -32,7 +32,14 @@ export const team = [
           Kwaku holds an MBA from Kellogg School of Management, a Master’s in Actuarial Science from Cass Business School, and a Bachelor’s in Civil Engineering from Kwame Nkrumah University of Science and Technology. He is a Chartered Engineer and a Project Management Professional (PMP). His commitment to leveraging technology for sustainable development and empowering communities aligns perfectly with Digital Umuganda’s mission.
         </p>
       `,
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/kwakuagbesi/",
+  },
+  {
+    name: "Reny Patrick Ndaruhutse",
+    position: "Projects Lead",
+    image: "/images/Patrick.JPG",
+    about: ``,
+    linkedin: "https://www.linkedin.com/in/reny-patrick-ndaruhutse-391051190/",
   },
   {
     name: "Michel Patrick Mivumbi",
@@ -48,7 +55,7 @@ export const team = [
   {
     name: "Jean Luc Nshimiyimana",
     position: "Finance Lead",
-    image: "/images/DSC06888.JPG",
+    image: "/images/JeanLuc.jpeg",
     about: `
         <p>
           Jean-Luc is an experienced finance professional with a track record of over 7 years in corporate finance, he specializes in financial management, financial planning & analysis (FP&A) as well as strategy development, and business performance management. <br /> <br />
@@ -59,6 +66,13 @@ export const team = [
         </p>
       `,
     linkedin: "https://www.linkedin.com/in/jean-luc-n-a332b8238/",
+  },
+  {
+    name: "Uwase Jacqueline Cikina",
+    position: "Finance Assistant",
+    image: "/images/Chikina.jpg",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/jacqueline-uwase-cikina-321139388/",
   },
   {
     name: "Ishimwe Mugisha Boris",
@@ -73,6 +87,31 @@ export const team = [
     image: "/images/DSC06939.JPG",
     about: "",
     linkedin: "https://www.linkedin.com/in/francisnkurunziza/",
+  },
+
+  {
+    name: "Hakuzimana Fabrice",
+    position: "Linguist",
+    image: "/images/Fabrice.jpg",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/hakuzimanafab/",
+  },
+
+  {
+    name: "Imanigirimbabazi Emmanuel",
+    position: "Linguist",
+    image: "/images/Emmanuel.jpg",
+    about: "",
+    linkedin:
+      "https://www.linkedin.com/in/emmanuel-imanigirimbabazi-33b0243a7/",
+  },
+
+  {
+    name: "Niyomugisha Olivier",
+    position: "Linguist",
+    image: "/images/Olivier.jpg",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/niyomugisha/",
   },
 
   {
@@ -92,6 +131,14 @@ export const team = [
   },
 
   {
+    name: "Nzabakira Floris",
+    position: "Machine Learning Engineer",
+    image: "/images/Floris.jpeg",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/nzabakira-floris-25622b19a/",
+  },
+
+  {
     name: "Celestin Niyindagiriye",
     position: "Software Developer",
     image: "/images/DSC06898.JPG",
@@ -105,7 +152,7 @@ export const team = [
 
   {
     name: "Elvis Peace NDAHAYO RUGERO",
-    position: "Software Developer",
+    position: "Senior Software Developer",
     image: "/images/DSC06915.JPG",
     about: "",
     linkedin:
@@ -124,11 +171,43 @@ export const team = [
     linkedin: "",
   },
 
+  // {
+  //   name: "Irakoze Mugisha Cedric",
+  //   position: "Software Developer",
+  //   image: "/images/DSC06870.JPG",
+  //   about: "",
+  //   linkedin: "https://www.linkedin.com/in/irakoze-mugisha-cedric-7a7a661a5/",
+  // },
+
   {
-    name: "Irakoze Mugisha Cedric",
+    name: "Kwizera Claude",
     position: "Software Developer",
-    image: "/images/DSC06870.JPG",
+    image: "/images/DSC_0592.JPG",
     about: "",
-    linkedin: "https://www.linkedin.com/in/irakoze-mugisha-cedric-7a7a661a5/",
+    linkedin: "https://www.linkedin.com/in/claude-kwizera/",
+  },
+
+  {
+    name: "NIYOKWIZERWA Fabrice",
+    position: "Software Developer",
+    image: "/images/IMG_2465.JPEG",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/fabrice-niyokwizerwa-a8402225a/",
+  },
+
+  {
+    name: "Ngunga Benitha",
+    position: "Software Developer",
+    image: "/images/Benitha.jpg",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/ngunga-benitha-26b43921b/",
+  },
+
+  {
+    name: "Blair Kayigamba",
+    position: "Software Developer",
+    image: "/images/Blair.jpg",
+    about: "",
+    linkedin: "https://www.linkedin.com/in/blairkayigamba/",
   },
 ];

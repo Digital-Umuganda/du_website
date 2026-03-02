@@ -204,12 +204,14 @@ const Contact = () => {
             )}
           />
           <div className="w-full flex flex-col items-end gap-6">
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-              ref={recaptchaRef}
-              onChange={handleChange}
-              onExpired={handleExpired}
-            />
+            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                ref={recaptchaRef}
+                onChange={handleChange}
+                onExpired={handleExpired}
+              />
+            )}
             <Button
               disabled={isPending || !isVerified}
               className="sm:w-1/3 lg:w-1/5 w-1/2 self-end bg-green h-[45px]"

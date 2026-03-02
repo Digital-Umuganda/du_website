@@ -74,11 +74,11 @@ const Footer = () => {
                 <p>info@digitalumuganda.com</p>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-6 text-green" /> <p>+250788498484</p>
+                <Phone className="w-6 text-green" /> <p>+250795756094</p>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-6 text-green" />{" "}
-                <p>Kigali Heights 5th Floor</p>
+                <p>Kigali Heights 6th Floor</p>
               </div>
             </div>
           </div>

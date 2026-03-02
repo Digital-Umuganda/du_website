@@ -8,8 +8,6 @@ import { Geography, Geographies, ComposableMap } from "react-simple-maps";
 import { Badge } from "./ui/badge";
 import { Card, CardTitle, CardHeader, CardContent } from "./ui/card";
 
-const geoUrl = "/africa.json";
-
 type CountryData = {
   id: string;
   name: string;
@@ -87,15 +85,20 @@ const countryData: CountryData[] = [
     name: "Nigeria",
     languages: ["Fulani"],
   },
-  {
-    id: "14",
-    name: "Democratic Republic of the Congo",
-    languages: ["Lingala"],
-  },
+  // {
+  //   id: "14",
+  //   name: "Democratic Republic of the Congo",
+  //   languages: ["Lingala"],
+  // },
   {
     id: "15",
     name: "Tanzania",
     languages: ["Kiswahili"],
+  },
+  {
+    id: "16",
+    name: "Benin",
+    languages: ["Fon"],
   },
 ];
 
@@ -107,7 +110,7 @@ const AfricaMap: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [tooltipContent, setTooltipContent] = useState<CountryData | null>(
-    null
+    null,
   );
 
   useEffect(() => {
@@ -142,7 +145,7 @@ const AfricaMap: React.FC = () => {
   const calculateTooltipPosition = (
     mouseX: number,
     mouseY: number,
-    mapRect: DOMRect
+    mapRect: DOMRect,
   ): { x: number; y: number; position: string } => {
     const rightSpace = mapRect.width - mouseX;
     const leftSpace = mouseX;
@@ -186,10 +189,10 @@ const AfricaMap: React.FC = () => {
 
   const handleMouseEnter = (
     geo: Geo,
-    event: React.MouseEvent<SVGPathElement>
+    event: React.MouseEvent<SVGPathElement>,
   ): void => {
     const country = countryData.find(
-      (c) => c.name === geo?.properties?.sovereignt
+      (c) => c.name === geo?.properties?.sovereignt,
     );
 
     if (country && mapRef.current) {
@@ -221,11 +224,11 @@ const AfricaMap: React.FC = () => {
           center: [18, 0],
         }}
       >
-        <Geographies geography={geoUrl}>
+        <Geographies geography={"/africa.json"}>
           {({ geographies }) =>
             geographies.map((geo) => {
               const isHighlighted = highlightedCountries.includes(
-                geo?.properties?.sovereignt
+                geo?.properties?.sovereignt,
               );
 
               return (

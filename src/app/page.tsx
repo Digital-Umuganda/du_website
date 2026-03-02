@@ -278,12 +278,6 @@ export default function Home() {
             alt="One"
             width={250}
             height={250}
-            src="/logos/four.png"
-          />
-          <GrayscaleImage
-            alt="One"
-            width={250}
-            height={250}
             src="/logos/five.svg"
           />
           <GrayscaleImage
@@ -294,8 +288,8 @@ export default function Home() {
           />
           <GrayscaleImage
             alt="One"
-            width={250}
-            height={250}
+            width={150}
+            height={150}
             src="/logos/eight.png"
           />
           <GrayscaleImage
@@ -303,6 +297,18 @@ export default function Home() {
             width={250}
             height={250}
             src="/logos/nine.svg"
+          />
+          <GrayscaleImage
+            alt="One"
+            width={250}
+            height={250}
+            src="/logos/minict.webp"
+          />
+          <GrayscaleImage
+            alt="One"
+            width={250}
+            height={250}
+            src="/logos/risa.jpg"
           />
         </div>
       </Width>

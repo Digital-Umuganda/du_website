@@ -12,6 +12,12 @@ import { LayoutDashboard } from "lucide-react";
 
 // Utils
 import { textVariants } from "@/lib/motion";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 const Hero = () => {
   const router = useRouter();
@@ -30,8 +36,25 @@ const Hero = () => {
           language at a time!
         </motion.p>
         <p className="sm:w-[600px] text-center">
-          Digital Umuganda is an AI and open data company with a mission to
-          enable access to information in local African languages.{" "}
+          Digital{" "}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="text-green cursor-help border-b border-dotted border-green hover:opacity-80 transition-opacity">
+                  Umuganda
+                </span>
+              </TooltipTrigger>
+              <TooltipContent className="bg-dark_blue">
+                <p className="text-sm">
+                  Umuganda /ʊ.mʊ.gæ.ndæ./: A Rwandan cultural practice <br />{" "}
+                  where people participate in community work and <br />{" "}
+                  development projects on the last Saturday of each month.
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>{" "}
+          is an AI and open data company with a mission to enable access to
+          information in local African languages.{" "}
         </p>
         <div className="flex items-center gap-10">
           <Button

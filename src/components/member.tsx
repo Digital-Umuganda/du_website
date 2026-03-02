@@ -31,15 +31,6 @@ export default function CompanyMemberCard({ member }: { member: MemberProps }) {
   const [showButton] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // useEffect(() => {
-  //   if (isHovered) {
-  //     const timer = setTimeout(() => setShowButton(true), 300);
-  //     return () => clearTimeout(timer);
-  //   } else {
-  //     setShowButton(false);
-  //   }
-  // }, [isHovered]);
-
   return (
     <div className="relative w-full rounded overflow-hidden">
       <div
@@ -149,7 +140,6 @@ export default function CompanyMemberCard({ member }: { member: MemberProps }) {
           className="flex items-center gap-4"
         >
           <AiOutlineLinkedin className="text-2xl cursor-pointer" />
-          {/* <BsTwitterX className="text-xl cursor-pointer" /> */}
         </a>
       </div>
     </div>

@@ -56,6 +56,10 @@ const Nav = () => {
       name: "Services",
     },
     {
+      href: "/publications",
+      name: "Publications",
+    },
+    {
       href: "/privacy",
       name: "Data Privacy",
     },
@@ -77,9 +81,9 @@ const Nav = () => {
               />
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuList className="gap-10 hidden lg:flex">
-            {navigation.map((item) => (
-              <NavigationMenuItem key={item.href} className="relative">
+          <NavigationMenuList className="gap-10 hidden xl:flex">
+            {navigation.map((item, index) => (
+              <NavigationMenuItem key={index} className="relative">
                 {item?.subNavigations ? (
                   <Fragment>
                     <NavigationMenuTrigger>{item.name}</NavigationMenuTrigger>
@@ -94,9 +98,9 @@ const Nav = () => {
                           className="w-1/3 h-auto object-cover object-right rounded"
                         />
                         <div className="w-2/3 h-full flex flex-col gap-2">
-                          {item.subNavigations.map((subItem) => (
+                          {item.subNavigations.map((subItem, index) => (
                             <div
-                              key={subItem.href}
+                              key={index}
                               className="flex flex-col gap-2 cursor-pointer p-4 rounded hover:bg-gray"
                               onClick={() =>
                                 router?.push(subItem.href as string)
@@ -123,7 +127,7 @@ const Nav = () => {
             ))}
           </NavigationMenuList>
           <NavigationMenuItem className="flex items-center gap-4 relative">
-            <NavigationMenuTrigger className="lg:hidden" aria-hidden="false">
+            <NavigationMenuTrigger className="xl:hidden" aria-hidden="false">
               <FaBarsStaggered className="text-2xl" />
             </NavigationMenuTrigger>
             <NavigationMenuContent className="top-[50px] sm:-left-[50%] -left-[200px]">
@@ -137,15 +141,12 @@ const Nav = () => {
                   className="w-full h-[150px] object-cover rounded"
                 />
                 <div className="flex flex-col gap-3">
-                  {navigation.map((item) => (
-                    <Fragment key={item.href as string}>
+                  {navigation.map((item, index) => (
+                    <Fragment key={index}>
                       {item?.subNavigations ? (
                         <Fragment>
-                          {item.subNavigations.map((subItem) => (
-                            <Link
-                              key={subItem.href}
-                              href={subItem.href as string}
-                            >
+                          {item.subNavigations.map((subItem, index) => (
+                            <Link key={index} href={subItem.href as string}>
                               <p>{subItem.name}</p>
                             </Link>
                           ))}

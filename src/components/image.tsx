@@ -33,7 +33,7 @@ export default function GrayscaleImage({
         loading="lazy"
         height={height}
         className={`
-          transition-all duration-500 ease-in-out w-[190px]
+          transition-all duration-500 ease-in-out w-[160px]
           ${isHovered ? "scale-100 filter-none" : "scale-90"}
         `}
       />
