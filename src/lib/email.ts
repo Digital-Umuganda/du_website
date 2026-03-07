@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const schema = z.object({
   email: z.string().email(),
@@ -21,7 +21,7 @@ export async function sendEmail(values: z.infer<typeof schema>) {
   const { error } = await resend.emails.send({
     to: ["info@digitalumuganda.com"],
     subject: validatedData.data.subject,
-    from: "Contact Message <send.umuganda.digital>",
+    from: "contact@send.umuganda.digital",
     html: `
         <p>From: ${validatedData.data.names} &lt;${validatedData.data.email}&gt;</p>
         <p>${validatedData.data.message}</p>
